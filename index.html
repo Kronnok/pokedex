@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokédex Moderna</title>
+    <meta name="description" content="Pokédex moderna y responsive consumiendo la PokéAPI" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="background-orb orb-one"></div>
+    <div class="background-orb orb-two"></div>
+
+    <div class="app-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Pokédex interactiva</p>
+          <h1>Explora, busca y descubre Pokémon con una experiencia moderna.</h1>
+          <p class="hero-text">
+            Una aplicación web construida con HTML, CSS y JavaScript vanilla que consume la PokéAPI de forma limpia, escalable y responsive.
+          </p>
+        </div>
+
+        <div class="hero-controls">
+          <label class="search-bar" for="searchInput">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M10.5 4a6.5 6.5 0 1 1 0 13 6.5 6.5 0 0 1 0-13Zm0 0 8.5 8.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            <input id="searchInput" type="search" placeholder="Buscar por nombre o número" />
+          </label>
+          <button id="searchButton" class="primary-button" type="button">Buscar</button>
+        </div>
+      </header>
+
+      <section class="favorites-section" aria-labelledby="favoritesTitle">
+        <div class="panel-header">
+          <div>
+            <p class="panel-kicker">Favoritos</p>
+            <h2 id="favoritesTitle">Tus Pokémon preferidos</h2>
+          </div>
+          <span id="favoritesCount" class="results-pill">0 favoritos</span>
+        </div>
+
+        <div id="favoritesGrid" class="favorites-grid"></div>
+      </section>
+
+      <main class="dashboard">
+        <section class="list-panel" aria-label="Listado de Pokémons">
+          <div class="panel-header">
+            <div>
+              <p class="panel-kicker">Catálogo</p>
+              <h2>Pokédex</h2>
+            </div>
+            <span id="resultsCount" class="results-pill">0 resultados</span>
+          </div>
+
+          <div id="cardsGrid" class="cards-grid" aria-live="polite"></div>
+
+          <div class="panel-actions">
+            <button id="loadMoreButton" class="secondary-button" type="button">Cargar más</button>
+          </div>
+        </section>
+
+      </main>
+    </div>
+
+    <div id="detailModal" class="detail-modal" aria-hidden="true">
+      <div class="detail-modal-backdrop" data-action="close-modal"></div>
+      <div class="detail-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="detailModalTitle">
+        <button id="closeModalButton" class="modal-close" type="button" aria-label="Cerrar detalle">×</button>
+        <div id="detailCard" class="detail-card">
+          <div class="detail-placeholder">
+            <p>Selecciona un Pokémon para ver sus detalles y estadísticas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
